@@ -1,0 +1,227 @@
+:root{
+    --bg:#0f0f0f;
+    --card:#1a1a1a;
+    --text:#e0e0e0;
+    --accent:#ff5722;
+    --green:#4caf50;
+    --gray:#333;
+    --progress-gradient:Linear-gradient(90deg,#ff9800,#f44336,#ff9800);
+}
+[data-theme="light"] {
+    --bg:#f5f5f5;
+    --card:#ffffff;
+    --text:#333;
+    --gray:#ddd;
+    --progress-gradient:linear-gradient(90deg,#ff9800,#f44336,#ff9800);
+}
+
+
+body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'sora',sans-serif;
+    margin:0;
+    padding:20px;
+    min-height:100vh;
+}
+header{
+    position:relative; /* allow absolute centering of h1 */
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:30px;
+}
+
+
+header h1 {
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%, -50%);
+    text-align:center;
+    font-weight:700;
+    letter-spacing: 1px;
+    font-size:2.2rem;
+    background: linear-gradient(90deg,#ff6e95,#a78bfa);
+    -webkit-background-fill-color:transparent;
+    border-radius: 6px 6px;
+    
+    flex:0;
+}
+
+
+.logo-container{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+.logo{
+    width:120px;
+    height:auto;
+    
+
+    
+}
+h1{
+    
+    font-size:2em;
+    margin:0;
+    text-align:center;
+    font-weight:700;
+
+
+
+    
+}
+#theme-toggle{
+    background:none;
+    border:none;
+    font-size:1.8em;
+    cursor:pointer;
+    color:var(--text);
+    margin-top:1px;
+}
+.quote-banner {
+  text-align: center;
+  font-size: 1.3em;
+  font-style: italic;
+  color: #888;
+  margin: 20px 0;
+  min-height: 1.5em;
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+.stats {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.progress-container { flex: 1; min-width: 200px; }
+
+.progress-label { font-weight: 600; }
+
+.progress-bar {
+  height: 12px;
+  background: var(--gray);
+  border-radius: 6px;
+  overflow: hidden;
+  margin-top: 8px;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--progress-gradient);
+  background-size: 200% 100%;
+  animation: moveGradient 4s linear infinite;
+  transition: width 0.8s ease;
+}
+
+@keyframes moveGradient {
+  0% { background-position: 0% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.streak-container {
+  font-size: 1.4em;
+  font-weight: bold;
+  color: var(--accent);
+}
+
+.add-habit {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+#habit-input {
+  flex: 1;
+  padding: 14px;
+  border-radius: 8px;
+  border: 1px solid var(--gray);
+  background: var(--card);
+  color: var(--text);
+  font-size: 1em;
+}
+
+#add-btn {
+  padding: 0 20px;
+  background: var(--accent);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.habits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.habit-card {
+  background: var(--card);
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+  transition: transform 0.2s;
+}
+
+.habit-card:hover { transform: translateY(-5px); }
+
+.habit-name { margin: 0 0 12px; font-size: 1.4em; }
+
+.streak { font-size: 1.2em; color: var(--accent); margin: 8px 0; }
+
+.weekly-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+  margin: 15px 0;
+}
+
+.day-labels {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  font-size: 0.8em;
+  color: #888;
+  margin-bottom: 6px;
+}
+
+.day {
+  aspect-ratio: 1/1;
+  background: var(--gray);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.day:hover { transform: scale(1.15); box-shadow: 0 0 12px rgba(76,175,80,0.6); }
+
+.day.done {
+  background: var(--green);
+  box-shadow: 0 0 12px rgba(76,175,80,0.8);
+}
+
+.toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.8);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 30px;
+  opacity: 0;
+  transition: opacity 0.5s;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+.toast.show { opacity: 1; }

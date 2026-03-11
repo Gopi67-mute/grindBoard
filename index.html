@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grind Board project</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <img src="images/core3.png" alt="Core Unity" class="logo">
+    </div>
+    <h1>Grind Board</h1>
+    <button id="theme-toggle" title="Toggle Dark/Light">🌙</button>
+  </header>
+  <div id="quote-banner" class="quote-banner"></div>
+  <section class="stats">
+    <div class="progress-container">
+      <span class="progress-label" >progress:<span id="progress-percent">0%</span></span>
+      <div class="progress-bar">
+        <div class="progress-fill"></div>
+      </div>
+    </div>
+    <div class="streak-container">
+      Streak:<span id="streak-days">0</span>days 🔥
+    </div>
+   </section>
+
+   <section class="add-habit">
+    <input type="text" id="habit-input" placeholder="Enter New Grind (e.g.,code 1hr)"/>
+    <button id="add-btn">Add</button>
+   </section>
+   <main class="habits-grid" id="habits-container"></main>
+   <div id="done-toast" class="toast">You've done this:<span id="toast-habit"></span></div>
+  
+ 
+  <script src="script.js"></script>
+</body>
+</html>
