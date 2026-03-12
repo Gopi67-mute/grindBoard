@@ -75,7 +75,7 @@ header h1 {
     gap:clamp(8px,2vw,15px);
 }
 .logo{
-    width:200px;
+    width:100px;
     height:auto;
     border-radius: 50%;
 }
