@@ -7,7 +7,7 @@
     --gray:#333;
     --progress-gradient:Linear-gradient(90deg,#ff9800,#f44336,#ff9800);
 }
-[data-theme="light"] {
+[data-theme="dark"] {
     --bg:#f5f5f5;
     --card:#ffffff;
     --text:#333;
