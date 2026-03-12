@@ -1,7 +1,7 @@
 :root{
-    --bg:#0f0f0f;
+    --bg:black;
     --card:#1a1a1a;
-    --text:#e0e0e0;
+    --text:white;
     --accent:#ff5722;
     --green:#4caf50;
     --gray:#333;
@@ -30,8 +30,27 @@ header{
     justify-content:space-between;
     align-items:center;
     margin-bottom:30px;
+    gap:15px;
+    padding:0 10px;
+    flex-wrap:wrap;
 }
+#theme-toggle{
+  font-size:1.8em;
+  padding:8px;
+  min-width:48px;
+  min-height:48px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  background:rgba(255,255,255,0.08);
+  transition: background 0.2s;
 
+}
+#theme-toggle:hover,
+#theme-toggle:focus{
+  background:rgba(255,255,255,0.15);
+}
 
 header h1 {
     position:absolute;

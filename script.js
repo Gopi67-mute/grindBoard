@@ -52,7 +52,7 @@ themeToggle.addEventListener('click', () => {
   const current = document.documentElement.getAttribute('data-theme');
   const next = current === 'dark' ? 'light' : 'dark';
   document.documentElement.setAttribute('data-theme', next);
-  themeToggle.textContent = next === 'dark' ? '🌙' : '☀️';
+  themeToggle.textContent = next === 'dark' ? '☀️':'🌙';
 });
 
 // Create habit card
@@ -158,3 +158,8 @@ document.getElementById('clear-all')?.addEventListener('click', () => {
 
 // Start the app
 loadHabits();
+
+window.addEventListener('resize',()=>{
+  const current=document.documentElement.getAttribute('data-theme');
+  document.documentElement.setAttribute('data-theme',current||'dark');
+});
