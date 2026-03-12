@@ -163,3 +163,34 @@ window.addEventListener('resize',()=>{
   const current=document.documentElement.getAttribute('data-theme');
   document.documentElement.setAttribute('data-theme',current||'dark');
 });
+
+card.innerHTML = `
+  <div class="card-header">
+    <h2 class="habit-name">${habit.name}</h2>
+    <button class="delete-btn" title="Delete this grind">🗑️</button>
+  </div>
+  <p class="streak">Streak: <span class="streak-count">${habit.streak || 0}</span> days 🔥</p>
+  <div class="day-labels">
+    <div>M</div><div>T</div><div>W</div><div>T</div><div>F</div><div>S</div><div>S</div>
+  </div>
+  <div class="weekly-grid">
+    ${Array(7).fill().map(() => '<div class="day"></div>').join('')}
+  </div>
+`;
+
+
+// Delete button logic
+const deleteBtn = card.querySelector('.delete-btn');
+deleteBtn.addEventListener('click', () => {
+  if (confirm(`Delete "${habit.name}" forever?`)) {
+    // Remove from array
+    habits = habits.filter(h => h.name !== habit.name);
+    // Remove card from DOM
+    card.remove();
+    // Update global stats
+    updateGlobalProgress();
+    updateGlobalStreak();
+    // Save changes
+    saveHabits();
+  }
+});

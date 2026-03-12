@@ -72,14 +72,13 @@ header h1 {
 .logo-container{
     display:flex;
     align-items:center;
-    gap:12px;
+    gap:clamp(8px,2vw,15px);
 }
 .logo{
-    width:50px;
+    width:8vw;
     height:auto;
-    
-
-    
+    max-width:50px;
+    border-radius: 50%;
 }
 h1{
     
@@ -87,10 +86,6 @@ h1{
     margin:0;
     text-align:center;
     font-weight:700;
-
-
-
-    
 }
 #theme-toggle{
     background:none;
@@ -244,3 +239,28 @@ h1{
 }
 
 .toast.show { opacity: 1; }
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.delete-btn {
+  background: none;
+  border: none;
+  font-size: 1.4em;
+  color: #e74c3c;               /* red trash icon */
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s, transform 0.1s;
+  padding: 4px 8px;
+}
+
+
+  .delete-btn:hover {
+    color: #c0392b;
+    opacity:1;
+    color:#c0392b;
+}
